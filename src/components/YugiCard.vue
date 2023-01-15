@@ -18,8 +18,9 @@ export default {
 
 <style lang="scss">
   .card{
-    width: calc(100% / 5);
+    width: calc(100% / 5 - 20px);
     background-color: orange;
+    margin: 10px;
         img{
             width: 100%;
         }
