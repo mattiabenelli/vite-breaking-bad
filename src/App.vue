@@ -1,16 +1,37 @@
 <script>
-import AppContent from "./components/AppContent.vue"
+import axios from 'axios';
+import YugiCard from "./components/YugiCard.vue";
+import YugiList from "./components/YugiList.vue";
+
+import { store } from './store.js'
+
 export default {
   components:{
-    AppContent
+    YugiCard,
+    YugiList,
+  },
+  data(){
+    return{
+      store
+    }
+  },
+  beforeMount(){
+    this.getCard();
+  },
+  methods:{
+    getCard(){
+      axios.get(store.url).then((response) => {
+      store.YugiList = (response.data.data)
+      })
+    }
   }
 }
 </script>
 
 <template lang="">
-  <div>
-    <AppContent></AppContent>
-  </div>
+  <main>
+    <YugiList></YugiList>
+  </main>
 </template>
 
 <style lang="scss">
