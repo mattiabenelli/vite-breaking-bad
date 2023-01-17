@@ -8,7 +8,9 @@ export default {
 
 <template lang="">
     <div class="card">
-        <div><img :src="card.card_images[0].image_url" alt=""></div>
+        <div class="card-image">
+          <img :src="card.card_images[0].image_url" alt="">
+        </div>
         <div class="card-description">
             <div>{{ card.name }}</div>
             <div>{{ card.archetype }}</div>
@@ -17,10 +19,12 @@ export default {
 </template>
 
 <style lang="scss">
+    @use '../styles/partials/variables' as * ;
+    @use '../styles/partials/mixins' as * ;
+
   .card{
     width: calc(100% / 5 - 20px);
-    background-color: orange;
-    margin: 10px;
+    background-color: $orange-background;
         img{
             width: 100%;
         }

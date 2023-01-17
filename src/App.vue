@@ -1,7 +1,7 @@
 <script>
-import axios from 'axios';
 import YugiCard from "./components/YugiCard.vue";
 import YugiList from "./components/YugiList.vue";
+import YugiSelect from "./components/YugiSelect.vue";
 
 import { store } from './store.js'
 
@@ -9,22 +9,15 @@ export default {
   components:{
     YugiCard,
     YugiList,
+    YugiSelect,
   },
   data(){
     return{
       store
     }
   },
-  beforeMount(){
-    this.getCard();
-  },
   methods:{
-    getCard(){
-      axios.get(store.url).then((response) => {
-      store.YugiList = (response.data.data)
-      })
-    }
-  }
+    },
 }
 </script>
 
